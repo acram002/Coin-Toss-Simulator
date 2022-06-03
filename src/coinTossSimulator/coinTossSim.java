@@ -1,3 +1,8 @@
+/*
+ * Alexander Cramer
+ * SENG 210
+ * Coin Toss Simulator
+ */
 package coinTossSimulator;
 import java.util.Random;
 
