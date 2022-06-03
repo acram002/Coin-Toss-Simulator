@@ -5,33 +5,43 @@
  */
 package coinTossSimulator;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class coinTossSim {
 
 	public static void main(String[] args) {
 	
-			//calls coinToss method to get result
-		int result = coinToss();
+		Scanner scnr = new Scanner(System.in);
+				//prompts user for # of times to flip coin, then 
+				//calls coinToss w/ # of times
+		System.out.println("Enter number of times to flip coin: ");
+		int flips = scnr.nextInt();
 		
-			//if 1 then heads, if 0 then tails
-		if (result == 1) {
-			System.out.println("Heads!");
-		}
-		else {
-			System.out.println("Tails!");
-		}
+		coinToss(flips);
 		
+		scnr.close();
 	}
 	
 			//method for coin toss
-	public static int coinToss() {
+	public static void coinToss(int numTimes) {
 		
+		//loops amount of times specified by user
+		for(int i = 0; i < numTimes; i++) {
+			
 			//declares and generates Random Number 1 or 0 (Heads or Tails)
-		Random coin = new Random();
-		int heads = coin.nextInt(2);
-	
-		return heads;
+			Random coin = new Random();
+			int result = coin.nextInt(2);
+		
+			//if 1 then heads, if 0 then tails
+				if (result == 1) {
+					System.out.println("Heads!");
+				}
+				else {
+					System.out.println("Tails!");
+				}
+		}
+		
 	}
 
 }
