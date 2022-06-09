@@ -1,6 +1,5 @@
 /*
  * Alexander Cramer
- * SENG 210
  * Coin Toss Simulator
  */
 package coinTossSimulator;
@@ -14,16 +13,12 @@ public class coinTossSim {
 	
 	public static void main(String[] args) {
 	
-		//enables prgrm to make calls to JFrame and JPane
+		//enables prgrm to make call to JPanel
 		inputPanel input = new inputPanel(); 
-		MyFrame frame = new MyFrame();
 		
-		int times2Flip = input.timesFlip(); //calls JPanel and assigns returned int
-		
-		int [] flipResults = coinToss(times2Flip); //calls coinToss w/ returned int from JPanel
-													//assigns returned int array to flipResults
-		
-		frame.MyFrame(flipResults); //calls JFrame w/ array from coinToss
+		input.timesFlip(); //calls JPanel and method calls from there will finish
+							//prgrm, Jpanel will gather user input, call coinToss method,
+							//and call JFrame to display coin toss animation and results
 		
 	}
 	
@@ -81,3 +76,9 @@ public static void stats(int numTimes) {
 	System.out.println("Percentage Tails: " + (((double) t / (double) numTimes) * 100) + "%");
 }
 */
+
+//MyFrame frame = new MyFrame();
+		//int [] flipResults = coinToss(times2Flip); //calls coinToss w/ returned int from JPanel
+													//assigns returned int array to flipResults
+		
+		//frame.MyFrame(flipResults); //calls JFrame w/ array from coinToss

@@ -9,7 +9,15 @@ import java.io.*;
 
 public class MyFrame extends JFrame {
 	
-	public void MyFrame(int [] flipResults)	{
+	//variable declarations to be used in methods
+	public int coinTypeNum;
+	ImageIcon heads; 
+	ImageIcon tails; 
+	ImageIcon coinFlip = new ImageIcon("coinFlip.png");
+	JLabel label = new JLabel();
+	
+	
+	public void MyFrame(int [] flipResults, String coinType)	{
 		
 		//creates JFrame with title, layout, etc.
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,20 +26,41 @@ public class MyFrame extends JFrame {
 		this.setSize(500, 500);
 		this.setVisible(true);
 		
-		iconSet(flipResults); //calls iconSet w/ array of random numbers
-								//to portray images during coin flips
+		//calls iconSet to display animation based on 
+		//array of rand num (coin flips) and coinType selected
+		//by user
+		iconSet(flipResults, coinType.toLowerCase()); 
 		
-		stats(flipResults); //after all coin flip images, calls stats 
-							//with the array to provide stats about coin flips
-		
+		//calls stats method to display stats
+		//based on rand num array (coin flips)
+		stats(flipResults); 
 	}
 		
 		
-	public void iconSet(int [] flipsArray) {
+	public void iconSet(int [] flipsArray, String coinType) {
 			
-			JLabel label = new JLabel();
+			//switch case to set the image that will
+			//be displayed as the coin in animation, based
+			//upon which coin type the user selected
+			switch (coinType) {
+			
+			case "quarter": heads = new ImageIcon("heads2.png");
+							tails = new ImageIcon("tails2.png");
+					break;
+					
+			case "dime": heads = new ImageIcon("headsDime.png");
+						tails = new ImageIcon("tailsDime.jpeg");
+					break;
+					
+			case "penny": heads = new ImageIcon("headsPenny.jpeg");
+						tails = new ImageIcon("tailsPenny.png");
+					break;
+					
+			default: 
+					System.out.println("Invalid Input for Coin Type!!! (Ensure Spelling is the Same and Do Not Include Spaces)");
+					System.exit(0);
+			}
 		
-			
 			//iterates through array of random numbers
 			for (int i = 0; i < flipsArray.length; i++) {
 			
@@ -43,7 +72,7 @@ public class MyFrame extends JFrame {
 				//unless exception caught 
 				if (flipsArray[i] == 1) {
 					try {
-						label.setIcon(new ImageIcon("coinFlip.png"));
+						label.setIcon(coinFlip);
 						JScrollPane scrollPane = new JScrollPane(label);
 						scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 						scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -52,7 +81,7 @@ public class MyFrame extends JFrame {
 						
 						Thread.sleep(1000);
 				
-						label.setIcon(new ImageIcon("heads2.png"));
+						label.setIcon(heads);
 				
 						Thread.sleep(1500);
 						
@@ -64,7 +93,7 @@ public class MyFrame extends JFrame {
 		
 				else {
 					try {
-						label.setIcon(new ImageIcon("coinFlip.png"));
+						label.setIcon(coinFlip);
 						JScrollPane scrollPane = new JScrollPane(label);
 						scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 						scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -73,7 +102,7 @@ public class MyFrame extends JFrame {
 			
 						Thread.sleep(1000);
 				
-						label.setIcon(new ImageIcon("tails2.png"));
+						label.setIcon(tails);
 						
 						Thread.sleep(1500);
 						
@@ -117,10 +146,27 @@ public class MyFrame extends JFrame {
 			
 	}
 	}
+}
+	
+	/*
+	public void setCoinType(String coinType) {
 		
-		
-		
+		if (coinType.toLowerCase().equals("quarter")) {
+			coinTypeNum = 0;
+		}
+		else if (coinType.toLowerCase().equals("dime")) {
+			coinTypeNum = 1;
+		}
+		else if (coinType.toLowerCase().equals("penny")) {
+			coinTypeNum = 2;
+		}
+		else {
+			coinTypeNum = -1;
+		}
 	}
+
+	}
+	*/
 	
 //old, unused code
 
