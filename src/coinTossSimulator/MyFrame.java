@@ -17,7 +17,9 @@ public class MyFrame extends JFrame {
 	JLabel label = new JLabel();
 	
 	
-	public void MyFrame(int [] flipResults, String coinType)	{
+	public void MyFrame(int [] flipResults, String coinType, String skipAnim)	{
+		
+		skipAnim = skipAnim.toLowerCase();
 		
 		//creates JFrame with title, layout, etc.
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,7 +31,15 @@ public class MyFrame extends JFrame {
 		//calls iconSet to display animation based on 
 		//array of rand num (coin flips) and coinType selected
 		//by user
-		iconSet(flipResults, coinType.toLowerCase()); 
+		if (skipAnim.equals("play")) {
+		iconSet(flipResults, coinType.toLowerCase(), skipAnim); 
+		}
+		else if (skipAnim.equals("skip")) {	
+		}
+		else {
+			System.out.println("Invalid Input Choice for Animation!!! (Ensure Spelling is the Same and Do Not Include Spaces)");
+			System.exit(0);
+		}
 		
 		//calls stats method to display stats
 		//based on rand num array (coin flips)
@@ -37,8 +47,9 @@ public class MyFrame extends JFrame {
 	}
 		
 		
-	public void iconSet(int [] flipsArray, String coinType) {
+	public void iconSet(int [] flipsArray, String coinType, String skipAnim) {
 			
+		
 			//switch case to set the image that will
 			//be displayed as the coin in animation, based
 			//upon which coin type the user selected
@@ -118,6 +129,7 @@ public class MyFrame extends JFrame {
 			
 			
 		}	
+	
 	public void stats(int [] flipsArray) {
 		
 		int h = 0;

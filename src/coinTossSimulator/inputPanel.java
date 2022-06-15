@@ -10,6 +10,7 @@ public class inputPanel {
 		//assigns times2Flip w/ Integer and typeCoin w/ String
 		int times2Flip = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter Number of Times to Flip Coin (Must be Integer Value): "));
 		String typeCoin = JOptionPane.showInputDialog(null,"Enter Type of Coin to Use (Quarter, Dime, Penny, Special): ");
+		String skipAnim = JOptionPane.showInputDialog(null,"Play or Skip Animation? (Play, Skip): ");
 		
 		//calls coinTossSim to get coin toss results
 		//stores rand num results in array
@@ -19,7 +20,7 @@ public class inputPanel {
 		//calls JFrame w/ flipResults array and 
 		//String typeCoin to display animation and results
 		MyFrame fr = new MyFrame();
-		fr.MyFrame(flipResults, typeCoin);	
+		fr.MyFrame(flipResults, typeCoin, skipAnim);	
 		
 	}
 	
