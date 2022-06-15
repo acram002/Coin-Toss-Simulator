@@ -8,3 +8,5 @@ play the animation, a different window will appear with an animation of the
 coin type they chose being flipped the user specified amount of times.
 At the end, either after their input or after the animation, a statistics box is displayed
 with the # of times heads, tails, and percentages of each. 
+
+Use coinTossSimulator src folder, not coinTossSimulator2
