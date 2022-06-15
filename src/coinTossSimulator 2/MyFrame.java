@@ -55,9 +55,7 @@ public class MyFrame extends JFrame {
 			case "penny": heads = new ImageIcon("headsPenny.jpeg");
 						tails = new ImageIcon("tailsPenny.png");
 					break;
-			case "special": heads = new ImageIcon("specHeads.png");
-						tails = new ImageIcon("specTails.png");
-						break;
+					
 			default: 
 					System.out.println("Invalid Input for Coin Type!!! (Ensure Spelling is the Same and Do Not Include Spaces)");
 					System.exit(0);
